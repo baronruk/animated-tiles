@@ -22,11 +22,19 @@ let outlineColorCounter = backgroundColorCounter + 1;
 let alternateParams;
 let isAlternateToggled = false;
 
+function getOutlineParams() {
+    return isOutlineToggled
+        ? {
+              outlineColor: colors[outlineColorCounter % (colors.length - 1)],
+          }
+        : null;
+}
+
 function clickHandle(tileIndex) {
     anime({
         targets: '.tile',
         backgroundColor: colors[backgroundColorCounter % (colors.length - 1)],
-        outlineColor: colors[outlineColorCounter % (colors.length - 1)],
+        ...getOutlineParams(),
         ...alternateParams,
         delay: anime.stagger(staggerDelay, {
             grid: [columns, rows],
