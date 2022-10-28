@@ -42,7 +42,9 @@ function createTile(tileIndex) {
     tile.classList.add('tile');
 
     if (isOutlineToggled) {
-        tile.style.setProperty('--outline', '0.5px solid var(--outline-color)');
+        anime.set(tile, {
+            outline: '0.5px solid',
+        });
     }
     tile.addEventListener('click', () => {
         clickHandle(tileIndex);
@@ -66,9 +68,11 @@ function createTileGrid() {
     columns = Math.floor(document.documentElement.clientWidth / tileSize);
     rows = Math.floor(document.documentElement.clientHeight / tileSize);
 
-    // set columns and rows CSS variables
-    tileGrid.style.setProperty('--columns', columns);
-    tileGrid.style.setProperty('--rows', rows);
+    // set grid columns and rows CSS properties
+    anime.set(tileGrid, {
+        gridTemplateColumns: `repeat(${columns}, 1fr)`,
+        gridTemplateRows: `repeat(${rows}, 1fr)`,
+    });
 
     populateTileGrid(columns * rows);
     console.log(`columns: ${columns} | rows: ${rows} | total tiles: ${columns * rows}`);

@@ -32,13 +32,10 @@ main {
 
 #tile-grid {
     display: grid;
-    grid-template-columns: repeat(var(--columns), 1fr);
-    grid-template-rows: repeat(var(--rows), 1fr);
 }
 
 .tile {
     cursor: pointer;
-    outline: var(--outline);
 }
 
 .hidden {
