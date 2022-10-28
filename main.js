@@ -19,8 +19,16 @@ let rows;
 let backgroundColorCounter = 0;
 let isOutlineToggled = false;
 let outlineColorCounter = backgroundColorCounter + 1;
-let alternateParams;
 let isAlternateToggled = false;
+
+function getAlternateParams() {
+    return isAlternateToggled
+        ? {
+              loop: 2,
+              direction: 'alternate',
+          }
+        : null;
+}
 
 function getOutlineParams() {
     return isOutlineToggled
@@ -35,7 +43,7 @@ function clickHandle(tileIndex) {
         targets: '.tile',
         backgroundColor: colors[backgroundColorCounter % (colors.length - 1)],
         ...getOutlineParams(),
-        ...alternateParams,
+        ...getAlternateParams(),
         delay: anime.stagger(staggerDelay, {
             grid: [columns, rows],
             from: tileIndex,
@@ -91,13 +99,8 @@ function getKeydownAction(event) {
         case 'KeyA':
             if (isAlternateToggled) {
                 isAlternateToggled = false;
-                alternateParams = null;
             } else {
                 isAlternateToggled = true;
-                alternateParams = {
-                    loop: 2,
-                    direction: 'alternate',
-                };
             }
             break;
         case 'KeyH':
