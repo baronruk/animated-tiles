@@ -1,7 +1,6 @@
 :root {
     --body-background: #282a36;
     --secondary-background: #44475a5b;
-    --outline-color: #f8f8f2;
     --highlight: #50fa7b;
     --font-color: #f8f8f2;
     --secondary-font-color: #000000;
@@ -61,7 +60,7 @@ main {
 
     font-size: 18px;
     font-weight: var(--bold);
-    border-bottom: 1px solid var(--outline-color);
+    border-bottom: 1px solid;
 }
 
 .key-binding {
