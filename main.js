@@ -58,9 +58,7 @@ function createTile(tileIndex) {
     tile.classList.add('tile');
 
     if (isOutlineToggled) {
-        anime.set(tile, {
-            outline: '0.5px solid',
-        });
+        tile.style.setProperty('--outline', '0.5px solid');
     }
     tile.addEventListener('click', () => {
         clickHandle(tileIndex);

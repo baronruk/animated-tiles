@@ -35,6 +35,7 @@ main {
 
 .tile {
     cursor: pointer;
+    outline: var(--outline);
 }
 
 .hidden {
