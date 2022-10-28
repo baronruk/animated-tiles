@@ -41,10 +41,6 @@ main {
     outline: var(--outline);
 }
 
-/* .tile:hover {
-    filter: blur(1px);
-} */
-
 .hidden {
     display: none;
 }
