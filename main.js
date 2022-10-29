@@ -20,6 +20,64 @@ let backgroundColorCounter = 0;
 let isOutlineToggled = false;
 let outlineColorCounter = backgroundColorCounter + 1;
 let isAlternateToggled = false;
+let animationSwitch = 0;
+
+function timelineChildren(timeline) {
+    switch (animationSwitch) {
+        case 1:
+            timeline
+                .add({
+                    rotateZ: 45,
+                })
+                .add({
+                    rotateZ: 0,
+                });
+            break;
+        case 2:
+            timeline
+                .add({
+                    translateX: anime.stagger(15, {
+                        grid: [columns, rows],
+                        from: 'center',
+                        axis: 'x',
+                    }),
+                    translateY: anime.stagger(15, {
+                        grid: [columns, rows],
+                        from: 'center',
+                        axis: 'y',
+                    }),
+                })
+                .add({
+                    translateX: 0,
+                    translateY: 0,
+                });
+            break;
+        case 3:
+            timeline
+                .add({
+                    translateX: anime.stagger(15, {
+                        grid: [columns, rows],
+                        from: 'center',
+                        axis: 'x',
+                    }),
+                    translateY: anime.stagger(15, {
+                        grid: [columns, rows],
+                        from: 'center',
+                        axis: 'y',
+                    }),
+                    rotateZ: anime.stagger(anime.random(0, 45), {
+                        grid: [columns, rows],
+                        from: 'center',
+                        axis: 'z',
+                    }),
+                })
+                .add({
+                    translateX: 0,
+                    translateY: 0,
+                    rotateZ: 0,
+                });
+    }
+}
 
 function getAlternateParams() {
     return isAlternateToggled
@@ -39,7 +97,7 @@ function getOutlineParams() {
 }
 
 function clickHandle(tileIndex) {
-    anime({
+    let params = {
         targets: '.tile',
         backgroundColor: colors[backgroundColorCounter % (colors.length - 1)],
         ...getOutlineParams(),
@@ -48,7 +106,14 @@ function clickHandle(tileIndex) {
             grid: [columns, rows],
             from: tileIndex,
         }),
-    });
+    };
+
+    if (animationSwitch < 1) {
+        anime(params);
+    } else {
+        timelineChildren(anime.timeline(params));
+    }
+
     outlineColorCounter++;
     backgroundColorCounter++;
 }
@@ -111,20 +176,34 @@ function keyBinding(event) {
             }
             break;
         case 'KeyO':
-            if (isOutlineToggled) {
-                isOutlineToggled = false;
-            } else {
-                isOutlineToggled = true;
+            if (animationSwitch != 1) {
+                if (isOutlineToggled) {
+                    isOutlineToggled = false;
+                } else {
+                    isOutlineToggled = true;
+                }
+                createTileGrid();
             }
-            createTileGrid();
             break;
         case 'KeyR':
             window.location.reload();
     }
 }
 
+function setAnimationSwitch(event) {
+    animationSwitch = parseInt(event.key);
+    if (animationSwitch === 1) {
+        isOutlineToggled = true;
+    }
+    createTileGrid();
+}
+
 function keydownAction(event) {
-    keyBinding(event);
+    if (event.code.includes('Digit')) {
+        setAnimationSwitch(event);
+    } else {
+        keyBinding(event);
+    }
 }
 
 function initTileGrid() {
