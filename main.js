@@ -92,7 +92,7 @@ function createTileGrid() {
     console.log(`columns: ${columns} | rows: ${rows} | total tiles: ${columns * rows}`);
 }
 
-function getKeydownAction(event) {
+function keydownAction(event) {
     switch (event.code) {
         case 'KeyA':
             if (isAlternateToggled) {
@@ -131,7 +131,7 @@ function initTileGrid() {
     document.addEventListener(
         'keydown',
         event => {
-            getKeydownAction(event);
+            keydownAction(event);
         },
         {passive: false},
     );
