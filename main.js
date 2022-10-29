@@ -92,7 +92,7 @@ function createTileGrid() {
     console.log(`columns: ${columns} | rows: ${rows} | total tiles: ${columns * rows}`);
 }
 
-function keydownAction(event) {
+function keyBinding(event) {
     switch (event.code) {
         case 'KeyA':
             if (isAlternateToggled) {
@@ -121,6 +121,10 @@ function keydownAction(event) {
         case 'KeyR':
             window.location.reload();
     }
+}
+
+function keydownAction(event) {
+    keyBinding(event);
 }
 
 function initTileGrid() {
