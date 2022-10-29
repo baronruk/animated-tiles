@@ -64,17 +64,24 @@ main {
     border-bottom: 1px solid;
 }
 
-.key-binding {
-    text-align: left;
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    column-gap: 5px;
+    row-gap: 15px;
 }
 
-.key-binding span {
-    margin-bottom: 15px;
+.key-binding {
+    margin-inline: auto;
     padding: 10px 18px;
-    display: inline-block;
 
     border-radius: 4px;
     font-weight: var(--bold);
     color: var(--secondary-font-color);
     background-color: var(--highlight);
+}
+
+.description {
+    text-align: left;
 }
