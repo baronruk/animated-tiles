@@ -191,11 +191,16 @@ function keyBinding(event) {
 }
 
 function setAnimationSwitch(event) {
-    animationSwitch = parseInt(event.key);
-    if (animationSwitch === 1) {
-        isOutlineToggled = true;
+    let key = event.key;
+    if (key <= 3) {
+        animationSwitch = parseInt(key);
+        if (animationSwitch === 1) {
+            isOutlineToggled = true;
+        }
+        createTileGrid();
+    } else {
+        alert('Please pick an animation from 0 to 3');
     }
-    createTileGrid();
 }
 
 function keydownAction(event) {
