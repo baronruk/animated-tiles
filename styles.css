@@ -50,9 +50,13 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    border-radius: 10px;
     pointer-events: none;
-    background-color: var(--secondary-background);
+
+    background: var(--secondary-background);
+    box-shadow: 0 10px 35px 0 rgba(68, 71, 90, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #key-bindings .title {
