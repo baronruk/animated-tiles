@@ -1,7 +1,5 @@
 'use strict';
 
-const tileSize = 65;
-const staggerDelay = 70;
 const colors = [
     '#f1fa8c',
     '#6272a4',
@@ -12,6 +10,8 @@ const colors = [
     '#ff79c6',
     '#ffb86c',
 ];
+const staggerDelay = 70;
+const tileSize = 65;
 
 let alternateIndicator;
 let animationSwitch = 0;
