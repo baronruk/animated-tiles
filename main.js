@@ -21,6 +21,9 @@ let isOutlineToggled = false;
 let outlineColorCounter = backgroundColorCounter + 1;
 let isAlternateToggled = false;
 let animationSwitch = 0;
+let indicators;
+let alternateIndicator;
+let outlineIndicator;
 
 function timelineChildren(timeline) {
     switch (animationSwitch) {
@@ -203,17 +206,49 @@ function setAnimationSwitch(event) {
     }
 }
 
+function updateIndicatorsDisplay() {
+    // update active animation indicator
+    indicators.querySelector('#active-animation').innerText = animationSwitch;
+
+    // update alternate animation indicator
+    if (isAlternateToggled) {
+        alternateIndicator.classList.remove('red');
+        alternateIndicator.classList.add('green');
+    } else {
+        alternateIndicator.classList.remove('green');
+        alternateIndicator.classList.add('red');
+    }
+
+    // update tile outline indicator
+    if (isOutlineToggled) {
+        outlineIndicator.classList.remove('red');
+        outlineIndicator.classList.add('green');
+    } else {
+        outlineIndicator.classList.remove('green');
+        outlineIndicator.classList.add('red');
+    }
+}
+
 function keydownAction(event) {
     if (event.code.includes('Digit')) {
         setAnimationSwitch(event);
     } else {
         keyBinding(event);
     }
+
+    updateIndicatorsDisplay();
 }
 
 function initTileGrid() {
     tileGrid = document.querySelector('#tile-grid');
+    indicators = document.querySelector('#indicators');
+    alternateIndicator = indicators.querySelector('#alternate-animation');
+    outlineIndicator = indicators.querySelector('#tile-outline');
+
+    // initial tile grid render
     createTileGrid();
+    // initial indicator update
+    updateIndicatorsDisplay();
 
     window.addEventListener('resize', createTileGrid);
     document.addEventListener(
