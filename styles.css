@@ -8,6 +8,8 @@
     --red-cirle-background: #ff5555;
     --green-glow: rgba(80, 250, 123, 0.3);
     --red-glow: rgba(255, 85, 85, 0.3);
+    --glass-morphism-border-color: rgba(255, 255, 255, 0.2);
+    --glass-morphism-box-shadow-color: rgba(68, 71, 90, 0.4);
     --bold: 700;
 }
 
@@ -52,10 +54,10 @@ main {
     pointer-events: none;
 
     background: var(--secondary-background);
-    box-shadow: 0 10px 35px 0 rgba(68, 71, 90, 0.4);
+    box-shadow: 0 10px 35px 0 var(glass-morphism-box-shadow-color);
     backdrop-filter: blur(10px);
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(glass-morphism-border-color);
 }
 
 #key-bindings {
