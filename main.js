@@ -13,17 +13,17 @@ const colors = [
     '#ffb86c',
 ];
 
-let tileGrid;
-let columns;
-let rows;
+let alternateIndicator;
+let animationSwitch = 0;
 let backgroundColorCounter = 0;
+let columns;
+let indicators;
+let isAlternateToggled = false;
 let isOutlineToggled = false;
 let outlineColorCounter = backgroundColorCounter + 1;
-let isAlternateToggled = false;
-let animationSwitch = 0;
-let indicators;
-let alternateIndicator;
 let outlineIndicator;
+let rows;
+let tileGrid;
 
 function timelineChildren(timeline) {
     switch (animationSwitch) {
