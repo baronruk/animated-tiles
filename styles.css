@@ -1,15 +1,17 @@
 :root {
-    --body-background: #282a36;
-    --secondary-background: #44475a5b;
-    --highlight: #50fa7b;
-    --font-color: #f8f8f2;
-    --secondary-font-color: #000000;
-    --green-cirle-background: #50fa7b;
-    --red-cirle-background: #ff5555;
-    --green-glow: rgba(80, 250, 123, 0.3);
-    --red-glow: rgba(255, 85, 85, 0.3);
+    /* colors */
+    --body-background: rgba(40, 42, 54, 1);
+    --font-color: rgba(248, 248, 242, 1);
     --glass-morphism-border-color: rgba(255, 255, 255, 0.2);
     --glass-morphism-box-shadow-color: rgba(68, 71, 90, 0.4);
+    --green-cirle-background: rgba(80, 250, 123, 1);
+    --green-glow: rgba(80, 250, 123, 0.3);
+    --highlight: rgba(80, 250, 123, 1);
+    --red-cirle-background: rgba(255, 85, 85, 1);
+    --red-glow: rgba(255, 85, 85, 0.3);
+    --secondary-background: rgba(68, 71, 90, 0.357);
+    --secondary-font-color: rgba(0, 0, 0, 1);
+    /* fonts */
     --bold: 700;
 }
 
