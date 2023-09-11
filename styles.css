@@ -56,10 +56,10 @@ main {
     pointer-events: none;
 
     background: var(--secondary-background);
-    box-shadow: 0 10px 35px 0 var(glass-morphism-box-shadow-color);
+    box-shadow: 0 10px 35px 0 var(--glass-morphism-box-shadow-color);
     backdrop-filter: blur(10px);
     border-radius: 10px;
-    border: 1px solid var(glass-morphism-border-color);
+    border: 1px solid var(--glass-morphism-border-color);
 }
 
 #key-bindings {
