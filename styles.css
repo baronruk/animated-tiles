@@ -196,3 +196,15 @@ main {
 .note div {
     display: inline-block;
 }
+
+#message {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#message div {
+    padding: 15px;
+    font-size: 41px;
+}

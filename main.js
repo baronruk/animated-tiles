@@ -260,6 +260,10 @@ function initTileGrid() {
     createTileGrid();
     // initial indicator update
     updateIndicatorsDisplay();
+    // set message handler
+    document.addEventListener('mousedown', () => {
+        document.querySelector('#message').remove();
+    });
 
     window.addEventListener('resize', createTileGrid);
     document.addEventListener(
