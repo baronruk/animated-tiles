@@ -10,6 +10,16 @@ const colors = [
     '#ff79c6',
     '#ffb86c',
 ];
+const complementaryColors = [
+    '#958cfa',
+    '#a49462',
+    '#55ffff',
+    '#fd9f8b',
+    '#c6f093',
+    '#fa50cf',
+    '#79ffb8',
+    '#6cb3ff',
+];
 const staggerDelay = 70;
 const tileSize = 65;
 
@@ -20,7 +30,7 @@ let columns;
 let indicators;
 let isAlternateToggled = false;
 let isOutlineToggled = false;
-let outlineColorCounter = backgroundColorCounter + 1;
+let outlineColorCounter = 0;
 let outlineIndicator;
 let rows;
 let tileGrid;
@@ -94,7 +104,8 @@ function getAlternateParams() {
 function getOutlineParams() {
     return isOutlineToggled
         ? {
-              outlineColor: colors[outlineColorCounter % (colors.length - 1)],
+              outlineColor:
+                  complementaryColors[outlineColorCounter % (complementaryColors.length - 1)],
           }
         : null;
 }
