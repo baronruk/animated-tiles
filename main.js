@@ -28,8 +28,8 @@ let animationSwitch = 0;
 let backgroundColorCounter = 0;
 let columns;
 let indicators;
-let isAlternateToggled = false;
-let isOutlineToggled = false;
+let isAlternateToggled = true;
+let isOutlineToggled = true;
 let outlineColorCounter = 0;
 let outlineIndicator;
 let rows;
@@ -269,6 +269,17 @@ function initTileGrid() {
         },
         {passive: false},
     );
+
+    function getRandomNumber(max) {
+        return Math.floor(Math.random() * max);
+    }
+
+    function clickTile() {
+        const tiles = document.querySelectorAll('.tile');
+        tiles[getRandomNumber(tiles.length)].click();
+    }
+
+    setInterval(clickTile, 6000);
 }
 
 window.addEventListener('load', initTileGrid);
